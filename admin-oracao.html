@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedidos de Oração - Painel Administrativo</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/admin-styles.css">
+    <link rel="icon" href="img/favicon.ico">
+</head>
+<body>
+    <div class="admin-wrapper">
+        <!-- Sidebar -->
+        <div class="admin-sidebar" id="adminSidebar">
+            <div class="sidebar-header">
+                <img src="img/logo.png" alt="Assembleia de Deus Ministério de Madureira" class="sidebar-logo">
+                <div class="sidebar-title">Painel Administrativo</div>
+            </div>
+            <div class="sidebar-user">
+                <div class="user-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="user-info">
+                    <div class="user-name">Administrador</div>
+                    <div class="user-role">Administrador</div>
+                </div>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="menu-item">
+                    <a href="admin-dashboard.html">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="admin-paginas.html">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Páginas</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="admin-eventos.html">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Eventos</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="admin-sermoes.html">
+                        <i class="fas fa-bible"></i>
+                        <span>Sermões</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="admin-galeria.html">
+                        <i class="fas fa-images"></i>
+                        <span>Galeria</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="admin-transmissao.html">
+                        <i class="fas fa-video"></i>
+                        <span>Transmissão</span>
+                    </a>
+                </li>
+                <li class="menu-item active">
+                    <a href="admin-oracao.html">
+                        <i class="fas fa-pray"></i>
+                        <span>Pedidos de Oração</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="admin-usuarios.html">
+                        <i class="fas fa-users"></i>
+                        <span>Usuários</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="admin-configuracoes.html">
+                        <i class="fas fa-cog"></i>
+                        <span>Configurações</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="sidebar-footer">
+                <a href="index.html" target="_blank">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span>Ver Site</span>
+                </a>
+                <a href="admin-login.html" class="logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Sair</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Conteúdo Principal -->
+        <div class="admin-content">
+            <!-- Cabeçalho -->
+            <header class="admin-header">
+                <div class="header-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="header-search">
+                    <form>
+                        <input type="text" placeholder="Pesquisar...">
+                        <button type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+                <div class="header-actions">
+                    <div class="header-notification">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="header-user">
+                        <img src="img/placeholder/admin-user.jpg" alt="Usuário">
+                        <span>Administrador</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Conteúdo da Página -->
+            <div class="admin-page-content">
+                <div class="page-header">
+                    <h1>Pedidos de Oração</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="admin-dashboard.html">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Pedidos de Oração</li>
+                        </ol>
+                    </nav>
+                </div>
+
+                <!-- Estatísticas -->
+                <div class="row stats-cards">
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card stats-card">
+                            <div class="card-body">
+                                <div class="stats-icon">
+                                    <i class="fas fa-pray"></i>
+                                </div>
+                                <div class="stats-info">
+                                    <h5>Total de Pedidos</h5>
+                                    <h3>28</h3>
+                                    <p>Todos os pedidos recebidos</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card stats-card">
+                            <div class="card-body">
+                                <div class="stats-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="stats-info">
+                                    <h5>Pendentes</h5>
+                                    <h3>12</h3>
+                                    <p>Aguardando intercessão</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card stats-card">
+                            <div class="card-body">
+                                <div class="stats-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="stats-info">
+                                    <h5>Atendidos</h5>
+                                    <h3>16</h3>
+                                    <p>Pedidos já atendidos</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card stats-card">
+                            <div class="card-body">
+                                <div class="stats-icon">
+                                    <i class="fas fa-calendar-alt"></i>
+                                </div>
+                                <div class="stats-info">
+                                    <h5>Hoje</h5>
+                                    <h3>3</h3>
+                                    <p>Pedidos recebidos hoje</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filtros -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-3 mb-3 mb-md-0">
+                                <label for="filterStatus" class="form-label">Status</label>
+                                <select class="form-select" id="filterStatus">
+                                    <option value="">Todos</option>
+                                    <option value="pendente">Pendentes</option>
+                                    <option value="atendido">Atendidos</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3 mb-3 mb-md-0">
+                                <label for="filterPrivacy" class="form-label">Privacidade</label>
+                                <select class="form-select" id="filterPrivacy">
+                                    <option value="">Todos</option>
+                                    <option value="publico">Públicos</option>
+                                    <option value="privado">Privados</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3 mb-3 mb-md-0">
+                                <label for="filterDate" class="form-label">Data</label>
+                                <input type="date" class="form-control" id="filterDate">
+                            </div>
+                            <div class="col-md-3 d-flex align-items-end">
+                                <button type="button" class="btn btn-primary w-100">
+                                    <i class="fas fa-filter"></i> Filtrar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tabela de Pedidos de Oração -->
+                <div class="card">
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th width="5%">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="selectAll">
+                                            </div>
+                                        </th>
+                                        <th width="20%">Nome</th>
+                                        <th width="30%">Pedido</th>
+                                        <th width="15%">Data</th>
+                                        <th width="10%">Privacidade</th>
+                                        <th width="10%">Status</th>
+                                        <th width="10%">Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox">
+                                            </div>
+                                        </td>
+                                        <td>Maria Silva</td>
+                                        <td>Oração pela saúde da minha mãe que está hospitalizada...</td>
+                                        <td>22/04/2025 10:30</td>
+                                        <td><span class="badge bg-secondary">Privado</span></td>
+                                        <td><span class="badge bg-warning">Pendente</span></td>
+                                        <td>
+                                            <a href="#" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#viewPrayerModal">
+                                                <i class="fas fa-eye"></i>
+                                            </a>
+                                            <a href="#" class="btn btn-sm btn-outline-danger" onclick="return confirmDelete('este pedido')">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox">
+                                            </div>
+                                        </td>
+                                        <td>João Santos</td>
+                                        <td>Pedido de oração por um emprego. Estou desempregado há 3 meses...</td>
+                                        <td>21/04/2025 15:45</td>
+                                        <td><span class="badge bg-primary">Público</span></td>
+                                        <td><span class="badge bg-warning">Pendente</span></td>
+                                        <td>
+                                            <a href="#" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#viewPrayerModal">
+                                                <i class="fas fa-eye"></i>
+                                            </a>
+                                            <a href="#" class="btn btn-sm btn-outline-danger" onclick="return confirmDelete('este pedido')">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox">
+                                            </div>
+                                        </td>
+                                        <td>Ana Oliveira</td>
+                                        <td>Oração pela minha família, estamos passando por dificuldades...</td>
+                                        <td>20/04/2025 09:15</td>
+                                        <td><span class="badge bg-secondary">Privado</span></td>
+                                        <td><span class="badge bg-success">Atendido</span></td>
+                                        <td>
+                                            <a href="#" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#viewPrayerModal">
+                                                <i class="fas fa-eye"></i>
+                                            </a>
+                                            <a href="#" class="btn btn-sm btn-outline-danger" onclick="return confirmDelete('este pedido')">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox">
+                                            </div>
+                                        </td>
+                                        <td>Carlos Pereira</td>
+                                        <td>Pedido de oração pela minha esposa que está grávida...</td>
+                                        <td>19/04/2025 18:20</td>
+                                        <td><span class="badge bg-primary">Público</span></td>
+                                        <td><span class="badge bg-success">Atendido</span></td>
+                                        <td>
+                                            <a href="#" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#viewPrayerModal">
+                                                <i class="fas fa-eye"></i>
+                                            </a>
+                                            <a href="#" class="btn btn-sm btn-outline-danger" onclick="return confirmDelete('este pedido')">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox">
+                                            </div>
+                                        </td>
+                                        <td>Fernanda Lima</td>
+                                        <td>Oração por cura de uma enfermidade que estou enfrentando...</td>
+                                        <td>18/04/2025 14:10</td>
+                                        <td><span class="badge bg-secondary">Privado</span></td>
+                                        <td><span class="badge bg-warning">Pendente</span></td>
+                                        <td>
+                                            <a href="#" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#viewPrayerModal">
+                                                <i class="fas fa-eye"></i>
+                                            </a>
+                                            <a href="#" class="btn btn-sm btn-outline-danger" onclick="return confirmDelete('este pedido')">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ações em Lote -->
+                <div class="bulk-actions mt-3 mb-4">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="d-flex">
+                                <select class="form-select me-2" id="bulkAction">
+                                    <option value="">Ações em Lote</option>
+                                    <option value="mark-attended">Marcar como Atendidos</option>
+                                    <option value="mark-pending">Marcar como Pendentes</option>
+                                    <option value="delete">Excluir Selecionados</option>
+                                </select>
+                                <button type="button" class="btn btn-primary">Aplicar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paginação -->
+                <nav aria-label="Page navigation" class="mt-4">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Anterior</a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Próximo</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- Rodapé -->
+            <footer class="admin-footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p>&copy; 2025 Assembleia de Deus Ministério de Madureira - Gurupi. Todos os direitos reservados.</p>
+                        </div>
+                        <div class="col-md-6 text-md-end">
+                            <p>Versão 1.0</p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Modal Visualizar Pedido de Oração -->
+    <div class="modal fade" id="viewPrayerModal" tabindex="-1" aria-labelledby="viewPrayerModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="viewPrayerModalLabel">Detalhes do Pedido de Oração</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <h6>Informações do Solicitante</h6>
+                            <p><strong>Nome:</strong> Maria Silva</p>
+                            <p><strong>Email:</strong> maria.silva@email.com</p>
+                            <p><strong>Telefone:</strong> (63) 98765-4321</p>
+                            <p><strong>Data do Pedido:</strong> 22/04/2025 10:30</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Status do Pedido</h6>
+                            <p><strong>Privacidade:</strong> <span class="badge bg-secondary">Privado</span></p>
+                            <p><strong>Status:</strong> <span class="badge bg-warning">Pendente</span></p>
+                            <p><strong>Contato Solicitado:</strong> Sim</p>
+                            <p><strong>Responsável:</strong> Não atribuído</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <h6>Pedido de Oração</h6>
+                            <div class="prayer-content p-3 bg-light rounded">
+                                <p>Gostaria de pedir oração pela saúde da minha mãe, Maria de Lourdes, que está hospitalizada há uma semana com problemas cardíacos. Os médicos estão considerando a necessidade de uma cirurgia e estamos muito preocupados. Por favor, orem para que Deus a cure e dê sabedoria aos médicos. Também peço oração para que toda a família tenha força e fé neste momento difícil.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <h6>Notas e Acompanhamento</h6>
+                            <textarea class="form-control" rows="3" placeholder="Adicione notas sobre o acompanhamento deste pedido..."></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-success">Marcar como Atendido</button>
+                    <button type="button" class="btn btn-primary">Atribuir a Mim</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>

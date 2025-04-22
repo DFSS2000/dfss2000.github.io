@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Eventos - Painel Administrativo</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/admin-styles.css">
+    <link rel="icon" href="img/favicon.ico">
+</head>
+<body>
+    <div class="admin-wrapper">
+        <!-- Sidebar -->
+        <div class="admin-sidebar" id="adminSidebar">
+            <div class="sidebar-header">
+                <img src="img/logo.png" alt="Assembleia de Deus Ministério de Madureira" class="sidebar-logo">
+                <div class="sidebar-title">Painel Administrativo</div>
+            </div>
+            <div class="sidebar-user">
+                <div class="user-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="user-info">
+                    <div class="user-name">Administrador</div>
+                    <div class="user-role">Administrador</div>
+                </div>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="menu-item">
+                    <a href="admin-dashboard.html">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="admin-paginas.html">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Páginas</span>
+                    </a>
+                </li>
+                <li class="menu-item active">
+                    <a href="admin-eventos.html">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Eventos</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="admin-sermoes.html">
+                        <i class="fas fa-bible"></i>
+                        <span>Sermões</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="admin-galeria.html">
+                        <i class="fas fa-images"></i>
+                        <span>Galeria</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="admin-transmissao.html">
+                        <i class="fas fa-video"></i>
+                        <span>Transmissão</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="admin-oracao.html">
+                        <i class="fas fa-pray"></i>
+                        <span>Pedidos de Oração</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="admin-usuarios.html">
+                        <i class="fas fa-users"></i>
+                        <span>Usuários</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="admin-configuracoes.html">
+                        <i class="fas fa-cog"></i>
+                        <span>Configurações</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="sidebar-footer">
+                <a href="index.html" target="_blank">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span>Ver Site</span>
+                </a>
+                <a href="admin-login.html" class="logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Sair</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Conteúdo Principal -->
+        <div class="admin-content">
+            <!-- Cabeçalho -->
+            <header class="admin-header">
+                <div class="header-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="header-search">
+                    <form>
+                        <input type="text" placeholder="Pesquisar...">
+                        <button type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+                <div class="header-actions">
+                    <div class="header-notification">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="header-user">
+                        <img src="img/placeholder/admin-user.jpg" alt="Usuário">
+                        <span>Administrador</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Conteúdo da Página -->
+            <div class="admin-page-content">
+                <div class="page-header">
+                    <h1>Gerenciamento de Eventos</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="admin-dashboard.html">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Eventos</li>
+                        </ol>
+                    </nav>
+                </div>
+
+                <!-- Botões de Ação -->
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addEventModal">
+                            <i class="fas fa-plus"></i> Adicionar Novo Evento
+                        </button>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <button type="button" class="btn btn-outline-secondary me-2">
+                            <i class="fas fa-file-export"></i> Exportar
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary">
+                            <i class="fas fa-print"></i> Imprimir
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Filtros -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-3 mb-3 mb-md-0">
+                                <label for="filterCategory" class="form-label">Categoria</label>
+                                <select class="form-select" id="filterCategory">
+                                    <option value="">Todas</option>
+                                    <option value="culto">Cultos</option>
+                                    <option value="estudo">Estudos Bíblicos</option>
+                                    <option value="especial">Eventos Especiais</option>
+                                    <option value="jovens">Jovens</option>
+                                    <option value="criancas">Crianças</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3 mb-3 mb-md-0">
+                                <label for="filterStatus" class="form-label">Status</label>
+                                <select class="form-select" id="filterStatus">
+                                    <option value="">Todos</option>
+                                    <option value="agendado">Agendado</option>
+                                    <option value="concluido">Concluído</option>
+                                    <option value="cancelado">Cancelado</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3 mb-3 mb-md-0">
+                                <label for="filterDate" class="form-label">Data</label>
+                                <input type="date" class="form-control" id="filterDate">
+                            </div>
+                            <div class="col-md-3 d-flex align-items-end">
+                                <button type="button" class="btn btn-primary w-100">
+                                    <i class="fas fa-filter"></i> Filtrar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tabela de Eventos -->
+                <div class="card">
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th width="5%">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="selectAll">
+                                            </div>
+                                        </th>
+                                        <th width="30%">Título</th>
+                                        <th width="15%">Categoria</th>
+                                        <th width="15%">Data</th>
+                                        <th width="10%">Horário</th>
+                                        <th width="10%">Status</th>
+                                        <th width="15%">Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox">
+                                            </div>
+                                        </td>
+                                        <td>Culto de Celebração</td>
+                                        <td>Cultos</td>
+                                        <td>28/04/2025</td>
+                                        <td>19:00</td>
+                                        <td><span class="badge bg-success">Agendado</span></td>
+                                        <td>
+                                            <a href="#" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#viewEventModal">
+                                                <i class="fas fa-eye"></i>
+                                            </a>
+                                            <a href="#" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#editEventModal">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            <a href="#" class="btn btn-sm btn-outline-danger" onclick="return confirmDelete('este evento')">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox">
+                                            </div>
+                                        </td>
+                                        <td>Culto de Oração</td>
+                                        <td>Cultos</td>
+                                        <td>01/05/2025</td>
+                                        <td>19:30</td>
+                                        <td><span class="badge bg-success">Agendado</span></td>
+                                        <td>
+                                            <a href="#" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#viewEventModal">
+                                                <i class="fas fa-eye"></i>
+                                            </a>
+                                            <a href="#" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#editEventModal">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            <a href="#" class="btn btn-sm btn-outline-danger" onclick="return confirmDelete('este evento')">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox">
+                                            </div>
+                                        </td>
+                                        <td>Culto de Adoração</td>
+                                        <td>Cultos</td>
+                                        <td>03/05/2025</td>
+                                        <td>19:30</td>
+                                        <td><span class="badge bg-success">Agendado</span></td>
+                                        <td>
+                                            <a href="#" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#viewEventModal">
+                                                <i class="fas fa-eye"></i>
+                                            </a>
+                                            <a href="#" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#editEventModal">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            <a href="#" class="btn btn-sm btn-outline-danger" onclick="return confirmDelete('este evento')">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox">
+                                            </div>
+                                        </td>
+                                        <td>Escola Dominical</td>
+                                        <td>Estudos Bíblicos</td>
+                                        <td>05/05/2025</td>
+                                        <td>09:00</td>
+                                        <td><span class="badge bg-success">Agendado</span></td>
+                                        <td>
+                                            <a href="#" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#viewEventModal">
+                                                <i class="fas fa-eye"></i>
+                                            </a>
+                                            <a href="#" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#editEventModal">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            <a href="#" class="btn btn-sm btn-outline-danger" onclick="return confirmDelete('este evento')">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox">
+                                            </div>
+                                        </td>
+                                        <td>Culto de Celebração</td>
+                                        <td>Cultos</td>
+                                        <td>21/04/2025</td>
+                                        <td>19:00</td>
+                                        <td><span class="badge bg-secondary">Concluído</span></td>
+                                        <td>
+                                            <a href="#" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#viewEventModal">
+                                                <i class="fas fa-eye"></i>
+                                            </a>
+                                            <a href="#" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#editEventModal">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            <a href="#" class="btn btn-sm btn-outline-danger" onclick="return confirmDelete('este evento')">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paginação -->
+                <nav aria-label="Page navigation" class="mt-4">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Anterior</a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Próximo</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- Rodapé -->
+            <footer class="admin-footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p>&copy; 2025 Assembleia de Deus Ministério de Madureira - Gurupi. Todos os direitos reservados.</p>
+                        </div>
+                        <div class="col-md-6 text-md-end">
+                            <p>Versão 1.0</p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Modal Adicionar Evento -->
+    <div class="modal fade" id="addEventModal" tabindex="-1" aria-labelledby="addEventModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addEventModalLabel">Adicionar Novo Evento</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="edit-form">
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <label for="eventTitle" class="form-label">Título do Evento*</label>
+                                <input type="text" class="form-control" id="eventTitle" required>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="eventCategory" class="form-label">Categoria*</label>
+                                <select class="form-select" id="eventCategory" required>
+                                    <option value="">Selecione</option>
+                                    <option value="culto">Cultos</option>
+                                    <option value="estudo">Estudos Bíblicos</option>
+                                    <option value="especial">Eventos Especiais</option>
+                                    <option value="jovens">Jovens</option>
+                                    <option value="criancas">Crianças</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="eventStatus" class="form-label">Status*</label>
+                                <select class="form-select" id="eventStatus" required>
+                                    <option value="agendado">Agendado</option>
+                                    <option value="concluido">Concluído</option>
+                                    <option value="cancelado">Cancelado</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="eventDate" class="form-label">Data*</label>
+                                <input type="date" class="form-control" id="eventDate" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="eventTime" class="form-label">Horário*</label>
+                                <input type="time" class="form-control" id="eventTime" required>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <label for="eventLocation" class="form-label">Local</label>
+                                <input type="text" class="form-control" id="eventLocation" placeholder="Ex: Templo Sede">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <label for="eventDescription" class="form-label">Descrição</label>
+                                <textarea class="form-control" id="eventDescription" rows="4"></textarea>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <label for="eventImage" class="form-label">Imagem do Evento</label>
+                                <input type="file" class="form-control" id="eventImage">
+                                <small class="text-muted">Tamanho recomendado: 1200x600px. Formatos aceitos: JPG, PNG.</small>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="eventFeatured">
+                                    <label class="form-check-label" for="eventFeatured">
+                                        Destacar na página inicial
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary">Salvar Evento</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Editar Evento -->
+    <div class="modal fade" id="editEventModal" tabindex="-1" aria-labelledby="editEventModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editEventModalLabel">Editar Evento</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="edit-form">
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <label for="editEventTitle" class="form-label">Título do Evento*</label>
+                                <input type="text" class="form-control" id="editEventTitle" value="Culto de Celebração" required>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="editEventCategory" class="form-label">Categoria*</label>
+                                <select class="form-select" id="editEventCategory" required>
+                                    <option value="">Selecione</option>
+                                    <option value="culto" selected>Cultos</option>
+                                    <option value="estudo">Estudos Bíblicos</option>
+                                    <option value="especial">Eventos Especiais</option>
+                                    <option value="jovens">Jovens</option>
+                                    <option value="criancas">Crianças</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="editEventStatus" class="form-label">Status*</label>
+                                <select class="form-select" id="editEventStatus" required>
+                                    <option value="agendado" selected>Agendado</option>
+                                    <option value="concluido">Concluído</option>
+                                    <option value="cancelado">Cancelado</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="editEventDate" class="form-label">Data*</label>
+                                <input type="date" class="form-control" id="editEventDate" value="2025-04-28" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="editEventTime" class="form-label">Horário*</label>
+                                <input type="time" class="form-control" id="editEventTime" value="19:00" required>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <label for="editEventLocation" class="form-label">Local</label>
+                                <input type="text" class="form-control" id="editEventLocation" value="Templo Sede">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <label for="editEventDescription" class="form-label">Descrição</label>
+                                <textarea class="form-control" id="editEventDescription" rows="4">Culto de Celebração dominical com louvor, adoração e pregação da Palavra de Deus.</textarea>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <label for="editEventImage" class="form-label">Imagem do Evento</label>
+                                <input type="file" class="form-control" id="editEventImage">
+                                <small class="text-muted">Tamanho recomendado: 1200x600px. Formatos aceitos: JPG, PNG.</small>
+                                <div class="mt-2">
+                                    <img src="img/placeholder/event-image.jpg" alt="Imagem atual" class="img-thumbnail" style="max-height: 100px;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="editEventFeatured" checked>
+                                    <label class="form-check-label" for="editEventFeatured">
+                                        Destacar na página inicial
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary">Salvar Alterações</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Visualizar Evento -->
+    <div class="modal fade" id="viewEventModal" tabindex="-1" aria-labelledby="viewEventModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="viewEventModalLabel">Detalhes do Evento</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="img/placeholder/event-image.jpg" alt="Imagem do Evento" class="img-fluid rounded mb-3">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Culto de Celebração</h4>
+                            <p><strong>Categoria:</strong> Cultos</p>
+                            <p><strong>Data:</strong> 28/04/2025</p>
+                            <p><strong>Horário:</strong> 19:00</p>
+                            <p><strong>Local:</strong> Templo Sede</p>
+                            <p><strong>Status:</strong> <span class="badge bg-success">Agendado</span></p>
+                            <p><strong>Destacado:</strong> Sim</p>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-12">
+                            <h5>Descrição</h5>
+                            <p>Culto de Celebração dominical com louvor, adoração e pregação da Palavra de Deus.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#editEventModal">Editar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
