@@ -1,0 +1,633 @@
+/* Estilos para o site da Assembleia de Deus Ministério de Madureira - Gurupi */
+
+/* Variáveis de cores */
+:root {
+    --color-black: #000000;
+    --color-dark-brown: #3E2723;
+    --color-medium-brown: #5D4037;
+    --color-gold: #D4AF37;
+    --color-light-gold: #F5DEB3;
+    --color-white: #FFFFFF;
+    --color-dark-gray: #212121;
+    --color-light-gray: #F5F5F5;
+}
+
+/* Estilos Gerais */
+body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--color-black);
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+a {
+    color: var(--color-gold);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-medium-brown);
+    text-decoration: none;
+}
+
+.btn {
+    border-radius: 0;
+    padding: 10px 25px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--color-gold);
+    border-color: var(--color-gold);
+    color: var(--color-black);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-dark-brown);
+    border-color: var(--color-dark-brown);
+    color: var(--color-white);
+}
+
+.btn-secondary {
+    background-color: var(--color-dark-brown);
+    border-color: var(--color-dark-brown);
+    color: var(--color-white);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-medium-brown);
+    border-color: var(--color-medium-brown);
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid var(--color-gold);
+    color: var(--color-gold);
+}
+
+.btn-outline:hover {
+    background-color: var(--color-gold);
+    color: var(--color-black);
+}
+
+.section-title {
+    position: relative;
+    margin-bottom: 15px;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-black);
+}
+
+.section-divider {
+    width: 80px;
+    height: 3px;
+    background-color: var(--color-gold);
+    margin: 0 auto 30px;
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: var(--color-medium-brown);
+}
+
+/* Cabeçalho */
+.header {
+    background-color: var(--color-white);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+    max-height: 100px;
+}
+
+.header-info {
+    color: var(--color-dark-gray);
+}
+
+.social-icons {
+    margin-bottom: 10px;
+}
+
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: var(--color-gold);
+    color: var(--color-black);
+    border-radius: 50%;
+    margin-left: 5px;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background-color: var(--color-dark-brown);
+    color: var(--color-white);
+}
+
+.contact-info {
+    font-size: 0.9rem;
+}
+
+/* Menu de Navegação */
+.main-nav {
+    background-color: var(--color-black);
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: var(--color-white);
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 15px 20px;
+    transition: all 0.3s ease;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link.active {
+    color: var(--color-gold);
+}
+
+/* Banner Principal */
+.hero-section {
+    position: relative;
+    height: 600px;
+    background-image: url('../img/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: var(--color-white);
+}
+
+.hero-slide {
+    height: 600px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    padding: 50px 0;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.hero-buttons {
+    margin-top: 30px;
+}
+
+.hero-buttons .btn {
+    margin: 0 10px;
+}
+
+/* Eventos */
+.event-card {
+    display: flex;
+    background-color: var(--color-white);
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.event-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    background-color: var(--color-gold);
+    color: var(--color-black);
+    padding: 15px 0;
+}
+
+.event-date .day {
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.event-date .month {
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.event-details {
+    padding: 20px;
+    flex-grow: 1;
+}
+
+.event-details h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.event-time, .event-location {
+    font-size: 0.9rem;
+    color: var(--color-dark-gray);
+    margin-bottom: 5px;
+}
+
+/* Mensagem do Pastor */
+.pastor-image img {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.pastor-content {
+    padding: 20px;
+}
+
+.pastor-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0;
+    color: var(--color-dark-brown);
+}
+
+.pastor-title {
+    font-size: 1rem;
+    color: var(--color-gold);
+}
+
+/* Transmissão ao Vivo */
+.live-container {
+    background-color: var(--color-dark-gray);
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.live-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+    color: var(--color-white);
+    text-align: center;
+}
+
+.live-placeholder i {
+    font-size: 3rem;
+    color: var(--color-gold);
+    margin-bottom: 20px;
+}
+
+.live-placeholder p {
+    margin-bottom: 20px;
+}
+
+/* Galeria */
+.gallery-grid {
+    margin-bottom: 30px;
+}
+
+.gallery-item {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.gallery-item img {
+    transition: all 0.5s ease;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.gallery-overlay i {
+    color: var(--color-white);
+    font-size: 2rem;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+/* Pedido de Oração */
+.prayer-section {
+    background-color: var(--color-dark-brown);
+    color: var(--color-white);
+}
+
+.prayer-card {
+    background-color: var(--color-white);
+    color: var(--color-black);
+    border-radius: 5px;
+    padding: 40px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.prayer-form .form-control {
+    border-radius: 0;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+
+.prayer-form .form-control:focus {
+    border-color: var(--color-gold);
+    box-shadow: none;
+}
+
+/* Horários de Culto */
+.schedule-card {
+    background-color: var(--color-white);
+    border-radius: 5px;
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.schedule-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.schedule-icon {
+    font-size: 2.5rem;
+    color: var(--color-gold);
+    margin-bottom: 20px;
+}
+
+.schedule-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.schedule-card p {
+    color: var(--color-dark-gray);
+    margin-bottom: 0;
+}
+
+/* Localização */
+.map-container {
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.location-info {
+    padding: 20px;
+}
+
+.location-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: var(--color-dark-brown);
+}
+
+.location-info p {
+    margin-bottom: 10px;
+}
+
+.location-info h4 {
+    font-size: 1.2rem;
+    color: var(--color-dark-brown);
+}
+
+/* Rodapé */
+.footer {
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
+.footer-top {
+    padding: 60px 0 30px;
+}
+
+.footer-logo {
+    max-height: 80px;
+    margin-bottom: 20px;
+}
+
+.footer-title {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: var(--color-gold);
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-title:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--color-gold);
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: var(--color-white);
+    transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--color-gold);
+    padding-left: 5px;
+}
+
+.footer-schedule {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-schedule li {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-schedule .day {
+    font-weight: 600;
+}
+
+.footer-contact {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-contact li {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.footer-contact li i {
+    margin-right: 10px;
+    color: var(--color-gold);
+}
+
+.footer-bottom {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.footer .social-icons {
+    margin-top: 20px;
+}
+
+.footer .social-icon {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--color-white);
+}
+
+.footer .social-icon:hover {
+    background-color: var(--color-gold);
+    color: var(--color-black);
+}
+
+/* Botão Voltar ao Topo */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--color-gold);
+    color: var(--color-black);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.back-to-top.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    background-color: var(--color-dark-brown);
+    color: var(--color-white);
+}
+
+/* Media Queries */
+@media (max-width: 991px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .hero-section, .hero-slide {
+        height: 500px;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+    
+    .hero-buttons .btn {
+        margin: 5px;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .prayer-card {
+        padding: 30px 20px;
+    }
+}
+
+@media (max-width: 575px) {
+    .hero-section, .hero-slide {
+        height: 400px;
+    }
+    
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+}

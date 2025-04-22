@@ -1,0 +1,672 @@
+/* Estilos para o painel administrativo da Assembleia de Deus Ministério de Madureira */
+
+/* Variáveis de cores */
+:root {
+    --color-black: #000000;
+    --color-dark-brown: #3E2723;
+    --color-medium-brown: #5D4037;
+    --color-gold: #D4AF37;
+    --color-light-gold: #F5DEB3;
+    --color-white: #FFFFFF;
+    --color-dark-gray: #212121;
+    --color-light-gray: #F5F5F5;
+    
+    --color-sidebar-bg: var(--color-black);
+    --color-sidebar-text: var(--color-white);
+    --color-sidebar-active: var(--color-gold);
+    
+    --color-header-bg: var(--color-white);
+    --color-header-text: var(--color-dark-gray);
+    
+    --color-content-bg: #f8f9fa;
+    --color-card-bg: var(--color-white);
+    
+    --color-primary: var(--color-gold);
+    --color-secondary: var(--color-dark-brown);
+    --color-success: #28a745;
+    --color-danger: #dc3545;
+    --color-warning: #ffc107;
+    --color-info: #17a2b8;
+}
+
+/* Estilos Gerais */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--color-content-bg);
+    color: var(--color-dark-gray);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
+a {
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--color-gold);
+    border-color: var(--color-gold);
+    color: var(--color-black);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-dark-brown);
+    border-color: var(--color-dark-brown);
+    color: var(--color-white);
+}
+
+.btn-secondary {
+    background-color: var(--color-dark-brown);
+    border-color: var(--color-dark-brown);
+    color: var(--color-white);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-medium-brown);
+    border-color: var(--color-medium-brown);
+}
+
+.card {
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+.card-header {
+    background-color: var(--color-white);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-header h5 {
+    margin: 0;
+    font-weight: 600;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+/* Layout do Painel Administrativo */
+.admin-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.admin-sidebar {
+    width: 260px;
+    background-color: var(--color-sidebar-bg);
+    color: var(--color-sidebar-text);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    overflow-y: auto;
+}
+
+.sidebar-header {
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-logo {
+    max-width: 120px;
+    margin-bottom: 10px;
+}
+
+.sidebar-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-gold);
+}
+
+.sidebar-user {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    background-color: var(--color-gold);
+    color: var(--color-black);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+.user-info {
+    flex: 1;
+}
+
+.user-name {
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.user-role {
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-item {
+    margin-bottom: 5px;
+}
+
+.menu-item a {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    color: var(--color-sidebar-text);
+    transition: all 0.3s ease;
+}
+
+.menu-item a i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+.menu-item a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--color-gold);
+}
+
+.menu-item.active a {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--color-gold);
+    border-left: 3px solid var(--color-gold);
+}
+
+.sidebar-footer {
+    padding: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+}
+
+.sidebar-footer a {
+    color: var(--color-sidebar-text);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-footer a i {
+    margin-right: 5px;
+}
+
+.sidebar-footer a:hover {
+    color: var(--color-gold);
+}
+
+.sidebar-footer a.logout {
+    color: #dc3545;
+}
+
+.sidebar-footer a.logout:hover {
+    color: #ff6b6b;
+}
+
+/* Conteúdo Principal */
+.admin-content {
+    flex: 1;
+    margin-left: 260px;
+    transition: all 0.3s ease;
+}
+
+/* Cabeçalho */
+.admin-header {
+    background-color: var(--color-header-bg);
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.header-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.header-search {
+    flex: 1;
+    margin: 0 20px;
+}
+
+.header-search form {
+    position: relative;
+    max-width: 400px;
+}
+
+.header-search input {
+    width: 100%;
+    padding: 8px 15px;
+    padding-right: 40px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+}
+
+.header-search button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 40px;
+    background: none;
+    border: none;
+    color: #777;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+}
+
+.header-notification {
+    position: relative;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.header-notification i {
+    font-size: 1.2rem;
+}
+
+.header-notification .badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: var(--color-danger);
+    color: white;
+    font-size: 0.7rem;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-user {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.header-user img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.header-user span {
+    margin-right: 5px;
+}
+
+/* Conteúdo da Página */
+.admin-page-content {
+    padding: 30px;
+}
+
+.page-header {
+    margin-bottom: 30px;
+}
+
+.page-header h1 {
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.breadcrumb {
+    margin-bottom: 0;
+}
+
+/* Cards de Estatísticas */
+.stats-card {
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.stats-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.stats-card .card-body {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.stats-icon {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(212, 175, 55, 0.1);
+    color: var(--color-gold);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-right: 15px;
+}
+
+.stats-info {
+    flex: 1;
+}
+
+.stats-info h5 {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    color: #777;
+}
+
+.stats-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.stats-info p {
+    margin-bottom: 0;
+    font-size: 0.8rem;
+    color: #777;
+}
+
+/* Gráficos */
+.chart-container {
+    height: 300px;
+    position: relative;
+}
+
+.chart-placeholder {
+    width: 100%;
+    height: 100%;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.chart-placeholder-bars {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+}
+
+.chart-placeholder-bars div {
+    width: 8%;
+    background-color: var(--color-gold);
+    border-radius: 3px 3px 0 0;
+}
+
+/* Pedidos de Oração */
+.prayer-requests-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.prayer-requests-list li {
+    padding: 15px 20px;
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.prayer-requests-list li:last-child {
+    border-bottom: none;
+}
+
+.prayer-info {
+    flex: 1;
+}
+
+.prayer-info h6 {
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.prayer-info p {
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    color: #777;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 300px;
+}
+
+.prayer-date {
+    font-size: 0.8rem;
+    color: #999;
+}
+
+/* Tabelas */
+.table {
+    margin-bottom: 0;
+}
+
+.table th {
+    font-weight: 600;
+    border-top: none;
+    background-color: #f9f9f9;
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+/* Lista de Atividades */
+.activity-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.activity-list li {
+    padding: 15px 20px;
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    align-items: flex-start;
+}
+
+.activity-list li:last-child {
+    border-bottom: none;
+}
+
+.activity-icon {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(212, 175, 55, 0.1);
+    color: var(--color-gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.activity-info {
+    flex: 1;
+}
+
+.activity-info h6 {
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.activity-info p {
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.activity-time {
+    font-size: 0.8rem;
+    color: #999;
+}
+
+/* Rodapé */
+.admin-footer {
+    background-color: var(--color-white);
+    padding: 15px 30px;
+    border-top: 1px solid #f0f0f0;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* Responsividade */
+@media (max-width: 991px) {
+    .admin-sidebar {
+        width: 70px;
+        overflow: visible;
+    }
+    
+    .admin-sidebar .sidebar-title,
+    .admin-sidebar .user-info,
+    .admin-sidebar .menu-item a span,
+    .admin-sidebar .sidebar-footer span {
+        display: none;
+    }
+    
+    .admin-sidebar .sidebar-logo {
+        max-width: 40px;
+    }
+    
+    .admin-sidebar .menu-item a {
+        justify-content: center;
+        padding: 15px;
+    }
+    
+    .admin-sidebar .menu-item a i {
+        margin-right: 0;
+        font-size: 1.2rem;
+    }
+    
+    .admin-sidebar .sidebar-footer {
+        justify-content: center;
+    }
+    
+    .admin-sidebar .sidebar-footer a {
+        padding: 10px;
+    }
+    
+    .admin-sidebar .sidebar-footer a i {
+        margin-right: 0;
+        font-size: 1.2rem;
+    }
+    
+    .admin-content {
+        margin-left: 70px;
+    }
+    
+    .header-toggle {
+        display: block;
+    }
+}
+
+@media (max-width: 767px) {
+    .admin-header {
+        padding: 15px;
+    }
+    
+    .header-search {
+        display: none;
+    }
+    
+    .admin-page-content {
+        padding: 15px;
+    }
+    
+    .stats-card .card-body {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .stats-icon {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+}
+
+/* Sidebar Collapsed State */
+.sidebar-collapsed .admin-sidebar {
+    width: 70px;
+}
+
+.sidebar-collapsed .admin-sidebar .sidebar-title,
+.sidebar-collapsed .admin-sidebar .user-info,
+.sidebar-collapsed .admin-sidebar .menu-item a span,
+.sidebar-collapsed .admin-sidebar .sidebar-footer span {
+    display: none;
+}
+
+.sidebar-collapsed .admin-sidebar .sidebar-logo {
+    max-width: 40px;
+}
+
+.sidebar-collapsed .admin-sidebar .menu-item a {
+    justify-content: center;
+    padding: 15px;
+}
+
+.sidebar-collapsed .admin-sidebar .menu-item a i {
+    margin-right: 0;
+    font-size: 1.2rem;
+}
+
+.sidebar-collapsed .admin-sidebar .sidebar-footer {
+    justify-content: center;
+}
+
+.sidebar-collapsed .admin-sidebar .sidebar-footer a {
+    padding: 10px;
+}
+
+.sidebar-collapsed .admin-sidebar .sidebar-footer a i {
+    margin-right: 0;
+    font-size: 1.2rem;
+}
+
+.sidebar-collapsed .admin-content {
+    margin-left: 70px;
+}
